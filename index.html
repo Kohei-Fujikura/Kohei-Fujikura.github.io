@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -228,6 +226,15 @@
       padding-left: 1.2rem;
     }
 
+    .restaurant-name {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .restaurant-description {
+      display: block;
+    }
+
     .site-footer {
       padding: 28px 0 50px;
       border-top: 1px solid var(--line);
@@ -266,6 +273,7 @@
       <a href="#" class="logo">Kohei Fujikura</a>
       <nav class="nav-links">
         <a href="#about">Home</a>
+        <a href="#restaurants">Restaurants</a>
       </nav>
     </div>
   </header>
@@ -279,6 +287,7 @@
         </p>
         <div class="hero-buttons">
           <a class="button primary" href="#about">About Me</a>
+          <a class="button" href="#restaurants">Kyoto Restaurants</a>
         </div>
       </div>
     </section>
@@ -303,6 +312,33 @@
       </div>
     </section>
 
+    <section id="restaurants" class="section alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">Kyoto</p>
+          <h2>Favorite Restaurants</h2>
+        </div>
+        <div class="card">
+          <p>
+            I currently live in Kyoto, and I would like to share some restaurants I enjoy here.
+          </p>
+          <ul class="link-list">
+            <li>
+              <strong class="restaurant-name"><a href="https://tabelog.com/kyoto/A2601/A260302/26011281/" target="_blank" rel="noopener noreferrer">大力餅</a></strong>
+              <span class="restaurant-description">出汁が美味しいので、基本的に何を頼んでも美味しい。1年くらい週3以上のペースで通っているが、全く飽きない。きつねそば・中華そばのいずれかをその日の気分で食べている。中華そば注文時に出てくるGABANの胡椒の缶がめっちゃでかい。鴨南蛮は特に絶品。お昼時はそこそこ混む。電子マネー決済が充実していてかなり便利。</span>
+            </li>
+            <li>
+              <strong class="restaurant-name"><a href="https://tabelog.com/kyoto/A2601/A260302/26001801/" target="_blank" rel="noopener noreferrer">NOANOA</a></strong>
+              <span class="restaurant-description">パスタとピザの店。前菜とパスタorピザのランチがリーズナブルな値段で楽しめる。お店がオシャレ。店員さんの対応がとても丁寧。</span>
+            </li>
+            <li>
+              <strong class="restaurant-name">Restaurant name 3</strong>
+              <span class="restaurant-description">short note about location, price range, or specialties.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
