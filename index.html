@@ -4,20 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kohei Fujikura</title>
-  <meta name="description" content="Kohei Fujikura">
+  <meta name="description" content="Kohei Fujikura — Postdoctoral researcher at Yukawa Institute for Theoretical Physics, Kyoto University.">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0b0b0f">
   <style>
     :root {
-      --bg: #f5f7fb;
-      --bg-alt: #eef2f9;
-      --surface: #ffffff;
-      --text: #1b2430;
-      --muted: #5f6b7a;
-      --line: #d8dee9;
-      --accent: #1f4fd1;
-      --accent-soft: #e8eeff;
+      --bg: #0b0b0f;
+      --bg-alt: #101017;
+      --surface: #15151d;
+      --surface-hover: #1a1a24;
+      --text: #e8eaf0;
+      --muted: #9aa1af;
+      --line: #262633;
+      --accent: #8ab4ff;
+      --accent-strong: #aac8ff;
+      --accent-soft: rgba(138, 180, 255, 0.12);
       --max-width: 980px;
       --radius: 18px;
-      --shadow: 0 10px 30px rgba(20, 30, 50, 0.08);
+      --shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
     }
 
     * {
@@ -36,13 +40,24 @@
       line-height: 1.75;
     }
 
+    ::selection {
+      background: rgba(138, 180, 255, 0.3);
+    }
+
     a {
       color: var(--accent);
       text-decoration: none;
     }
 
     a:hover {
+      color: var(--accent-strong);
       text-decoration: underline;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 4px;
     }
 
     .container {
@@ -54,9 +69,10 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      backdrop-filter: blur(10px);
-      background: rgba(245, 247, 251, 0.86);
-      border-bottom: 1px solid rgba(216, 222, 233, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(11, 11, 15, 0.82);
+      border-bottom: 1px solid var(--line);
     }
 
     .nav {
@@ -74,6 +90,7 @@
     }
 
     .logo:hover {
+      color: var(--text);
       text-decoration: none;
     }
 
@@ -86,28 +103,24 @@
     .nav-links a {
       color: var(--muted);
       font-size: 0.96rem;
+      transition: color 0.15s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      text-decoration: none;
     }
 
     .hero {
-      padding: 100px 0 70px;
+      padding: 110px 0 80px;
       background:
-        radial-gradient(circle at top left, rgba(31, 79, 209, 0.08), transparent 35%),
-        linear-gradient(to bottom, #f8faff, #f5f7fb);
+        radial-gradient(ellipse 60% 50% at 20% 0%, rgba(138, 180, 255, 0.1), transparent 70%),
+        radial-gradient(ellipse 50% 40% at 85% 20%, rgba(120, 110, 255, 0.06), transparent 70%),
+        var(--bg);
     }
 
     .hero-inner {
       max-width: 760px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      margin: 0 0 14px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 0.9rem;
-      font-weight: 600;
     }
 
     .hero h1 {
@@ -115,6 +128,11 @@
       font-size: clamp(2.6rem, 6vw, 4.8rem);
       line-height: 1.05;
       letter-spacing: -0.03em;
+      background: linear-gradient(120deg, #ffffff 30%, #aab6d4 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: #ffffff;
     }
 
     .hero-text {
@@ -139,25 +157,38 @@
       color: var(--text);
       font-weight: 600;
       box-shadow: var(--shadow);
+      transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
     }
 
     .button:hover {
+      color: var(--text);
       text-decoration: none;
       transform: translateY(-1px);
+      background: var(--surface-hover);
+      border-color: #34344a;
     }
 
     .button.primary {
       background: var(--accent);
-      color: white;
+      color: #0b0b0f;
       border-color: var(--accent);
+    }
+
+    .button.primary:hover {
+      background: var(--accent-strong);
+      border-color: var(--accent-strong);
+      color: #0b0b0f;
     }
 
     .section {
       padding: 72px 0;
+      scroll-margin-top: 80px;
     }
 
     .section.alt {
       background: var(--bg-alt);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
     .section-heading {
@@ -214,6 +245,10 @@
       margin-top: 18px;
     }
 
+    .pub-list li::marker {
+      color: var(--muted);
+    }
+
     .pub-links {
       display: inline-flex;
       gap: 12px;
@@ -221,9 +256,32 @@
       margin-top: 6px;
     }
 
+    .pub-links a {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .pub-links a:hover {
+      text-decoration: none;
+      background: rgba(138, 180, 255, 0.2);
+    }
+
     .link-list {
       margin: 0;
       padding-left: 1.2rem;
+    }
+
+    .link-list li::marker {
+      color: var(--muted);
+    }
+
+    .link-list li + li {
+      margin-top: 16px;
     }
 
     .restaurant-name {
@@ -233,6 +291,7 @@
 
     .restaurant-description {
       display: block;
+      color: var(--muted);
     }
 
     .site-footer {
@@ -272,7 +331,7 @@
     <div class="container nav">
       <a href="#" class="logo">Kohei Fujikura</a>
       <nav class="nav-links">
-        <a href="#about">Home</a>
+        <a href="#about">About</a>
         <a href="#interests">Interests</a>
         <a href="#publications">Publications</a>
         <a href="talks.html">Presentations</a>
@@ -318,7 +377,7 @@
       </div>
     </section>
 
-    <section id="interests" class="section">
+    <section id="interests" class="section alt">
       <div class="container">
         <div class="section-heading">
           <p class="section-label">Research</p>
@@ -341,7 +400,7 @@
       </div>
     </section>
 
-    <section id="publications" class="section alt">
+    <section id="publications" class="section">
       <div class="container">
         <div class="section-heading">
           <p class="section-label">Research</p>
@@ -358,10 +417,10 @@
           </p>
           <ol class="pub-list">
             <li>
-              <strong>Microlensing constraints on axion stars including finite lens and source size effects</strong> (2021)
+              <strong>Inflationary QCD phase diagram</strong> (2025)
               <div class="pub-links">
-                <a href="https://inspirehep.net/literature/1919193" target="_blank" rel="noopener noreferrer">INSPIRE</a>
-                <a href="https://arxiv.org/abs/2109.04283" target="_blank" rel="noopener noreferrer">arXiv</a>
+                <a href="https://inspirehep.net/literature/3096447" target="_blank" rel="noopener noreferrer">INSPIRE</a>
+                <a href="https://arxiv.org/abs/2512.24024" target="_blank" rel="noopener noreferrer">arXiv</a>
               </div>
             </li>
             <li>
@@ -372,10 +431,10 @@
               </div>
             </li>
             <li>
-              <strong>Inflationary QCD phase diagram</strong> (2025)
+              <strong>Microlensing constraints on axion stars including finite lens and source size effects</strong> (2021)
               <div class="pub-links">
-                <a href="https://inspirehep.net/literature/3096447" target="_blank" rel="noopener noreferrer">INSPIRE</a>
-                <a href="https://arxiv.org/abs/2512.24024" target="_blank" rel="noopener noreferrer">arXiv</a>
+                <a href="https://inspirehep.net/literature/1919193" target="_blank" rel="noopener noreferrer">INSPIRE</a>
+                <a href="https://arxiv.org/abs/2109.04283" target="_blank" rel="noopener noreferrer">arXiv</a>
               </div>
             </li>
           </ol>
@@ -383,7 +442,7 @@
       </div>
     </section>
 
-    <section id="restaurants" class="section">
+    <section id="restaurants" class="section alt">
       <div class="container">
         <div class="section-heading">
           <p class="section-label">Kyoto</p>
@@ -403,7 +462,7 @@
               <span class="restaurant-description">おばんざいが楽しめる京都の居酒屋（？）弁当も販売していて、よくお世話になっている。夜に行く人が多いが、個人的にはランチのコスパ最強だと思っている。ナスの炊いたんが絶品。オムラハウスと同じ系列なので、オムライスのお弁当も見かける。</span>
             </li>
             <li>
-              <strong class="restaurant-name"><a href="https://tabelog.com/kyoto/A2601/A260302/26031923/">サクラ伊食堂 (百万遍)</a></strong>
+              <strong class="restaurant-name"><a href="https://tabelog.com/kyoto/A2601/A260302/26031923/" target="_blank" rel="noopener noreferrer">サクラ伊食堂 (百万遍)</a></strong>
               <span class="restaurant-description">百万遍のイタリアン。パスタが本格的で美味しい。カチョエペペが特に美味しくて、自分も触発されてチャレンジしたら、失敗してダマができてしまった。</span>
             </li>
             <li>
