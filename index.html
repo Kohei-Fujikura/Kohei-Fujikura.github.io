@@ -7,330 +7,10 @@
   <meta name="description" content="Kohei Fujikura — Postdoctoral researcher at Yukawa Institute for Theoretical Physics, Kyoto University.">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#0b0b0f">
-  <style>
-    :root {
-      --bg: #0b0b0f;
-      --bg-alt: #101017;
-      --surface: #15151d;
-      --surface-hover: #1a1a24;
-      --text: #e8eaf0;
-      --muted: #9aa1af;
-      --line: #262633;
-      --accent: #8ab4ff;
-      --accent-strong: #aac8ff;
-      --accent-soft: rgba(138, 180, 255, 0.12);
-      --max-width: 980px;
-      --radius: 18px;
-      --shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.75;
-    }
-
-    ::selection {
-      background: rgba(138, 180, 255, 0.3);
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: var(--accent-strong);
-      text-decoration: underline;
-    }
-
-    a:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 3px;
-      border-radius: 4px;
-    }
-
-    .container {
-      width: min(var(--max-width), calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      background: rgba(11, 11, 15, 0.82);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      min-height: 72px;
-      gap: 20px;
-    }
-
-    .logo {
-      font-weight: 700;
-      font-size: 1.05rem;
-      color: var(--text);
-    }
-
-    .logo:hover {
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 22px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-size: 0.96rem;
-      transition: color 0.15s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .hero {
-      padding: 110px 0 80px;
-      background:
-        radial-gradient(ellipse 60% 50% at 20% 0%, rgba(138, 180, 255, 0.1), transparent 70%),
-        radial-gradient(ellipse 50% 40% at 85% 20%, rgba(120, 110, 255, 0.06), transparent 70%),
-        var(--bg);
-    }
-
-    .hero-inner {
-      max-width: 760px;
-    }
-
-    .hero h1 {
-      margin: 0 0 18px;
-      font-size: clamp(2.6rem, 6vw, 4.8rem);
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      background: linear-gradient(120deg, #ffffff 30%, #aab6d4 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      color: #ffffff;
-    }
-
-    .hero-text {
-      margin: 0 0 28px;
-      color: var(--muted);
-      font-size: 1.14rem;
-      max-width: 680px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 12px 18px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: var(--surface);
-      color: var(--text);
-      font-weight: 600;
-      box-shadow: var(--shadow);
-      transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
-    }
-
-    .button:hover {
-      color: var(--text);
-      text-decoration: none;
-      transform: translateY(-1px);
-      background: var(--surface-hover);
-      border-color: #34344a;
-    }
-
-    .button.primary {
-      background: var(--accent);
-      color: #0b0b0f;
-      border-color: var(--accent);
-    }
-
-    .button.primary:hover {
-      background: var(--accent-strong);
-      border-color: var(--accent-strong);
-      color: #0b0b0f;
-    }
-
-    .section {
-      padding: 72px 0;
-      scroll-margin-top: 80px;
-    }
-
-    .section.alt {
-      background: var(--bg-alt);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .section-heading {
-      margin-bottom: 24px;
-    }
-
-    .section-label {
-      margin: 0 0 6px;
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 0.92rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .section h2 {
-      margin: 0;
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      line-height: 1.15;
-    }
-
-    .grid.two {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-      margin-bottom: 20px;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 26px;
-      box-shadow: var(--shadow);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      font-size: 1.18rem;
-    }
-
-    .card p:last-child,
-    .card li:last-child {
-      margin-bottom: 0;
-    }
-
-    .pub-list {
-      margin: 0;
-      padding-left: 1.3rem;
-    }
-
-    .pub-list li + li {
-      margin-top: 18px;
-    }
-
-    .pub-list li::marker {
-      color: var(--muted);
-    }
-
-    .pub-meta {
-      display: block;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .pub-links {
-      display: inline-flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 6px;
-    }
-
-    .pub-links a {
-      display: inline-flex;
-      align-items: center;
-      padding: 3px 12px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      font-size: 0.88rem;
-      font-weight: 600;
-    }
-
-    .pub-links a:hover {
-      text-decoration: none;
-      background: rgba(138, 180, 255, 0.2);
-    }
-
-    .link-list {
-      margin: 0;
-      padding-left: 1.2rem;
-    }
-
-    .link-list li::marker {
-      color: var(--muted);
-    }
-
-    .link-list li + li {
-      margin-top: 16px;
-    }
-
-    .restaurant-name {
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .restaurant-description {
-      display: block;
-      color: var(--muted);
-    }
-
-    .site-footer {
-      padding: 28px 0 50px;
-      border-top: 1px solid var(--line);
-      background: var(--bg);
-    }
-
-    .footer-inner {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 720px) {
-      .nav {
-        padding: 12px 0;
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .grid.two {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding: 80px 0 56px;
-      }
-
-      .card {
-        padding: 22px;
-      }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
   <header class="site-header">
@@ -341,6 +21,7 @@
         <a href="#interests">Interests</a>
         <a href="#publications">Publications</a>
         <a href="talks.html">Presentations</a>
+        <a href="notes.html">Notes</a>
         <a href="#restaurants">Restaurants</a>
       </nav>
     </div>
@@ -348,6 +29,7 @@
 
   <main>
     <section class="hero">
+      <canvas id="starfield" aria-hidden="true"></canvas>
       <div class="container hero-inner">
         <h1>Kohei Fujikura</h1>
         <p class="hero-text">
@@ -355,6 +37,7 @@
         </p>
         <div class="hero-buttons">
           <a class="button primary" href="#about">About Me</a>
+          <a class="button" href="#publications">Publications</a>
           <a class="button" href="#restaurants">Kyoto Restaurants</a>
         </div>
       </div>
@@ -419,7 +102,7 @@
           </p>
           <p>
             Conference talks, seminars, intensive lectures, and posters are collected on a separate
-            <a href="talks.html">Presentations page</a>, together with slide files.
+            <a href="talks.html">Presentations page</a>.
           </p>
           <ol class="pub-list" reversed>
             <li>
@@ -555,7 +238,22 @@
       </div>
     </section>
 
-    <section id="restaurants" class="section alt">
+    <section id="notes" class="section alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">Materials</p>
+          <h2>Notes</h2>
+        </div>
+        <div class="card">
+          <p>
+            Lecture notes, research notes that have not (yet) turned into papers, and other materials will be posted on the
+            <a href="notes.html">Notes page</a>. The first items are in preparation — stay tuned!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="restaurants" class="section">
       <div class="container">
         <div class="section-heading">
           <p class="section-label">Kyoto</p>
@@ -595,7 +293,14 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <p>© Kohei Fujikura</p>
+      <div class="footer-links">
+        <a href="talks.html">Presentations</a>
+        <a href="notes.html">Notes</a>
+        <a href="https://inspirehep.net/authors/1897295" target="_blank" rel="noopener noreferrer">INSPIRE</a>
+      </div>
     </div>
   </footer>
+
+  <script src="assets/site.js" defer></script>
 </body>
 </html>

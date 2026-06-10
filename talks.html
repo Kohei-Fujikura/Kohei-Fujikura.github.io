@@ -7,340 +7,12 @@
   <meta name="description" content="Conference presentations, seminars, intensive lectures, and posters by Kohei Fujikura.">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#0b0b0f">
-  <style>
-    :root {
-      --bg: #0b0b0f;
-      --bg-alt: #101017;
-      --surface: #15151d;
-      --surface-hover: #1a1a24;
-      --text: #e8eaf0;
-      --muted: #9aa1af;
-      --line: #262633;
-      --accent: #8ab4ff;
-      --accent-strong: #aac8ff;
-      --accent-soft: rgba(138, 180, 255, 0.12);
-      --max-width: 1040px;
-      --radius: 18px;
-      --shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.7;
-    }
-
-    ::selection {
-      background: rgba(138, 180, 255, 0.3);
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: var(--accent-strong);
-      text-decoration: underline;
-    }
-
-    a:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 3px;
-      border-radius: 4px;
-    }
-
-    .container {
-      width: min(var(--max-width), calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      background: rgba(11, 11, 15, 0.82);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      min-height: 72px;
-      gap: 20px;
-    }
-
-    .logo {
-      font-weight: 700;
-      font-size: 1.05rem;
-      color: var(--text);
-    }
-
-    .logo:hover {
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-size: 0.96rem;
-      transition: color 0.15s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .hero {
-      padding: 92px 0 56px;
-      background:
-        radial-gradient(ellipse 60% 50% at 20% 0%, rgba(138, 180, 255, 0.1), transparent 70%),
-        radial-gradient(ellipse 50% 40% at 85% 20%, rgba(120, 110, 255, 0.06), transparent 70%),
-        var(--bg);
-    }
-
-    .hero-inner {
-      max-width: 820px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      margin: 0 0 14px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    .hero h1 {
-      margin: 0 0 18px;
-      font-size: clamp(2.4rem, 6vw, 4.4rem);
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      background: linear-gradient(120deg, #ffffff 30%, #aab6d4 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      color: #ffffff;
-    }
-
-    .hero-text {
-      margin: 0 0 24px;
-      color: var(--muted);
-      font-size: 1.08rem;
-      max-width: 720px;
-    }
-
-    .hero-links {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 22px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 12px 18px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: var(--surface);
-      color: var(--text);
-      font-weight: 600;
-      box-shadow: var(--shadow);
-      transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
-    }
-
-    .button:hover {
-      color: var(--text);
-      text-decoration: none;
-      transform: translateY(-1px);
-      background: var(--surface-hover);
-      border-color: #34344a;
-    }
-
-    .button.primary {
-      background: var(--accent);
-      color: #0b0b0f;
-      border-color: var(--accent);
-    }
-
-    .button.primary:hover {
-      background: var(--accent-strong);
-      border-color: var(--accent-strong);
-      color: #0b0b0f;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 14px;
-    }
-
-    .stat-card,
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
-    .stat-card {
-      padding: 18px;
-    }
-
-    .stat-card strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 1.5rem;
-      line-height: 1.1;
-      color: var(--accent);
-    }
-
-    .stat-card span {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .section {
-      padding: 68px 0;
-      scroll-margin-top: 80px;
-    }
-
-    .section.alt {
-      background: var(--bg-alt);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .section-heading {
-      margin-bottom: 24px;
-    }
-
-    .section-label {
-      margin: 0 0 6px;
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 0.92rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .section h2 {
-      margin: 0 0 10px;
-      font-size: clamp(1.7rem, 4vw, 2.5rem);
-      line-height: 1.15;
-    }
-
-    .section-intro {
-      margin: 0;
-      color: var(--muted);
-      max-width: 760px;
-    }
-
-    .talk-list {
-      display: grid;
-      gap: 18px;
-    }
-
-    .card {
-      padding: 22px 24px;
-    }
-
-    .talk-title {
-      margin: 0 0 10px;
-      font-size: 1.15rem;
-      line-height: 1.35;
-    }
-
-    .talk-authors,
-    .talk-meta,
-    .talk-note {
-      margin: 0;
-    }
-
-    .talk-authors {
-      margin-bottom: 6px;
-    }
-
-    .talk-meta,
-    .talk-note {
-      color: var(--muted);
-    }
-
-    .talk-note {
-      margin-top: 10px;
-    }
-
-    .badge-row {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 12px;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 5px 10px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 0.84rem;
-      font-weight: 600;
-    }
-
-    .site-footer {
-      padding: 28px 0 50px;
-      border-top: 1px solid var(--line);
-      background: var(--bg);
-    }
-
-    .footer-inner {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 720px) {
-      .nav {
-        padding: 12px 0;
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .hero {
-        padding: 72px 0 46px;
-      }
-
-      .card,
-      .stat-card {
-        padding: 20px;
-      }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
 </head>
-<body>
+<body class="wide">
   <header class="site-header">
     <div class="container nav">
       <a href="index.html" class="logo">Kohei Fujikura</a>
@@ -351,17 +23,19 @@
         <a href="#lectures">Lectures</a>
         <a href="#seminars">Seminars</a>
         <a href="#posters">Posters</a>
+        <a href="notes.html">Notes</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero compact">
+      <canvas id="starfield" aria-hidden="true"></canvas>
       <div class="container hero-inner">
         <span class="eyebrow">Research Activities</span>
         <h1>Presentations</h1>
         <p class="hero-text">
-          This page gathers conference presentations, seminars, intensive lectures, and posters in one place. Journal publications remain on the main page, while presentation-related activities are grouped here by format.
+          This page gathers conference presentations, seminars, intensive lectures, and posters in one place. Journal publications are listed on the main page.
         </p>
         <div class="hero-links">
           <a class="button primary" href="index.html">Back to Home</a>
@@ -369,23 +43,23 @@
         </div>
         <div class="stats">
           <div class="stat-card">
-            <strong>19</strong>
+            <strong>24</strong>
             <span>International conference presentations</span>
           </div>
           <div class="stat-card">
-            <strong>12</strong>
+            <strong>19</strong>
             <span>Domestic conference presentations</span>
           </div>
           <div class="stat-card">
-            <strong>13</strong>
+            <strong>17</strong>
             <span>Seminar presentations</span>
           </div>
           <div class="stat-card">
-            <strong>2</strong>
+            <strong>3</strong>
             <span>Poster presentations</span>
           </div>
           <div class="stat-card">
-            <strong>1</strong>
+            <strong>2</strong>
             <span>Intensive lecture series</span>
           </div>
         </div>
@@ -396,16 +70,41 @@
       <div class="container">
         <div class="section-heading">
           <p class="section-label">Conference Presentations</p>
-          <h2>International Conferences</h2>
+          <h2>International Conferences &amp; Workshops</h2>
           <p class="section-intro">
             Invited talks are marked explicitly below. Notes about organizing roles and presentation awards are preserved where they appear in the original record list.
           </p>
         </div>
         <div class="talk-list">
           <article class="card">
+            <h3 class="talk-title">Dense QC<sub>2</sub>D<sub>2</sub> with uniform matrix product states</h3>
+            <p class="talk-authors">K. Fujikura, Y. Hidaka</p>
+            <p class="talk-meta">QCD Critical Point and Hydrodynamic Evolution (YITP-W-26-5), Kyoto, June 2026.</p>
+          </article>
+          <article class="card">
+            <h3 class="talk-title">QC<sub>2</sub>D<sub>2</sub> with uniform matrix product states</h3>
+            <p class="talk-authors">K. Fujikura, Y. Hidaka</p>
+            <p class="talk-meta">Buenas Ideas on the QCD Phase Diagram (YITP-W-26-4), Kyoto, May 2026.</p>
+          </article>
+          <article class="card">
+            <h3 class="talk-title">Simulating dense QC<sub>2</sub>D<sub>2</sub> with uniform matrix product states</h3>
+            <p class="talk-authors">K. Fujikura, Y. Hidaka</p>
+            <p class="talk-meta">New computational methods in quantum field theory 2026, RIKEN iTHEMS, January 2026.</p>
+          </article>
+          <article class="card">
+            <h3 class="talk-title">An Invitation to the Hamiltonian formulation of lattice gauge theories</h3>
+            <p class="talk-authors">K. Fujikura</p>
+            <p class="talk-meta">Focus Workshop on Cosmological Phase Transitions: Theory, Dark Matter Genesis, and Gravitational Wave Signatures, IBS, Republic of Korea, November 2025.</p>
+          </article>
+          <article class="card">
+            <h3 class="talk-title">Inflationary QCD Phase Diagram</h3>
+            <p class="talk-authors">K. Fujikura, T. Noumi</p>
+            <p class="talk-meta">Young Scientist Forum, Jilin University, China, September 2025.</p>
+          </article>
+          <article class="card">
             <h3 class="talk-title">Inflationary phase diagram of QCD and QCD-like theories</h3>
             <p class="talk-authors">K. Fujikura, T. Noumi</p>
-            <p class="talk-meta">33rd Workshop on General Relativity and Gravitation in Japan, November 2024.</p>
+            <p class="talk-meta">33rd Workshop on General Relativity and Gravitation in Japan, December 2024.</p>
           </article>
           <article class="card">
             <h3 class="talk-title">Radion Stabilization and supercooled phase transition</h3>
@@ -413,7 +112,7 @@
             <p class="talk-meta">4th Mini-Workshop on the Early Universe, Japan, September 2024.</p>
           </article>
           <article class="card">
-            <h3 class="talk-title">Cosmological Phase Transition in Composite Higgs models</h3>
+            <h3 class="talk-title">Cosmological Phase Transitions in Composite Higgs Models</h3>
             <p class="talk-authors">K. Fujikura, Y. Nakai, R. Sato, Y. Wang</p>
             <p class="talk-meta">32nd Workshop on General Relativity and Gravitation in Japan, November 2023.</p>
           </article>
@@ -442,9 +141,9 @@
             </div>
           </article>
           <article class="card">
-            <h3 class="talk-title">Cosmological Phase Transition in Composite Higgs models</h3>
+            <h3 class="talk-title">Cosmological Phase Transitions in Composite Higgs Models</h3>
             <p class="talk-authors">K. Fujikura, Y. Nakai, R. Sato, Y. Wang</p>
-            <p class="talk-meta">Higgs as a Probe of New Physics, Japan, June 2023.</p>
+            <p class="talk-meta">Higgs as a Probe of New Physics 2023 (HPNP2023), Japan, June 2023.</p>
           </article>
           <article class="card">
             <h3 class="talk-title">Interactions between several types of cosmic strings</h3>
@@ -474,7 +173,7 @@
           <article class="card">
             <h3 class="talk-title">Electroweak-like Baryogenesis with New Chiral Matter</h3>
             <p class="talk-authors">K. Fujikura, K. Harigaya, R. Wang, Y. Nakai</p>
-            <p class="talk-meta">26th International Symposium on Particles, string &amp; Cosmology, Republic Korea, June 2021.</p>
+            <p class="talk-meta">26th International Symposium on Particles, Strings &amp; Cosmology (PASCOS), Republic of Korea, June 2021.</p>
           </article>
           <article class="card">
             <h3 class="talk-title">Observation of scalar dark matter through gravitational waves in radiative neutrino Model</h3>
@@ -544,10 +243,40 @@
           <p class="section-label">Conference Presentations</p>
           <h2>Domestic Conferences</h2>
           <p class="section-intro">
-            Domestic meetings, schools, and working-group presentations listed in the same order as the source record.
+            Domestic meetings, schools, and working-group presentations.
           </p>
         </div>
         <div class="talk-list">
+          <article class="card">
+            <h3 class="talk-title">Dense QC<sub>2</sub>D<sub>2</sub> with uniform matrix product states</h3>
+            <p class="talk-authors">K. Fujikura, Y. Hidaka</p>
+            <p class="talk-meta">CREST HEP-QC One-day Workshop 2026, Kyoto University, April 2026.</p>
+          </article>
+          <article class="card">
+            <h3 class="talk-title">Critical behavior of the Schwinger model via gauge invariant matrix product states</h3>
+            <p class="talk-authors">H. Fujii, K. Fujikura, Y. Kikukawa, T. Okuda, J. W. Pedersen</p>
+            <p class="talk-meta">Japan Physical Society 2025 (80th Annual Meeting), Hiroshima University, September 2025.</p>
+          </article>
+          <article class="card">
+            <h3 class="talk-title">Inflationary QCD Phase Diagram</h3>
+            <p class="talk-authors">K. Fujikura, T. Noumi</p>
+            <p class="talk-meta">Progress in Particle Physics 2025, YITP, September 2025.</p>
+          </article>
+          <article class="card">
+            <h3 class="talk-title">Critical behavior of the Schwinger model via gauge invariant matrix product states</h3>
+            <p class="talk-authors">H. Fujii, K. Fujikura, Y. Kikukawa, T. Okuda, J. W. Pedersen</p>
+            <p class="talk-meta">Strings and Fields 2025 (YITP-W-25-07), YITP, July–August 2025.</p>
+          </article>
+          <article class="card">
+            <h3 class="talk-title">Uniform matrix product states for the two-flavor Schwinger model</h3>
+            <p class="talk-authors">K. Fujikura, T. Okuda, Y. Kikukawa, H. Fujii</p>
+            <p class="talk-meta">Tensor Network 2025, University of Tsukuba (Tokyo campus), July 2025.</p>
+          </article>
+          <article class="card">
+            <h3 class="talk-title">Inflationary QCD Phase Diagram</h3>
+            <p class="talk-authors">K. Fujikura, T. Noumi</p>
+            <p class="talk-meta">皐月の会, May 2025.</p>
+          </article>
           <article class="card">
             <h3 class="talk-title">Study of lattice Schwinger model via gauge invariant variational uniform matrix product state</h3>
             <p class="talk-authors">H. Fujii, K. Fujikura, T. Okuda, Y. Kikukawa, J. W. Pedersen</p>
@@ -571,7 +300,12 @@
           <article class="card">
             <h3 class="talk-title">Microlensing constraints on axion stars including finite lens and source size effects</h3>
             <p class="talk-authors">K. Fujikura, M. P. Hertzberg, E. D. Schiappacasse, M. Yamaguchi</p>
-            <p class="talk-meta">Japan Physical Society 2023, March 2022.</p>
+            <p class="talk-meta">Japan Physical Society 2022, March 2022.</p>
+          </article>
+          <article class="card">
+            <h3 class="talk-title">Electroweak-like Baryogenesis with New Chiral Matter</h3>
+            <p class="talk-authors">K. Fujikura, K. Harigaya, Y. Nakai and W. Ruoquan</p>
+            <p class="talk-meta">New Higgs Working Group Meeting, November 2021.</p>
           </article>
           <article class="card">
             <h3 class="talk-title">Generation of FIMP dark matter and baryon asymmetry in quintessential inflation with right-handed neutrinos</h3>
@@ -620,6 +354,14 @@
         </div>
         <div class="talk-list">
           <article class="card">
+            <h3 class="talk-title">Cosmological phase transition and gravitational wave (Lectures I–III)</h3>
+            <p class="talk-authors">K. Fujikura</p>
+            <p class="talk-meta">29th International Summer Institute on Phenomenology of Elementary Particle Physics and Cosmology (SI2025), Yeosu, Republic of Korea, August 2025.</p>
+            <div class="badge-row">
+              <span class="badge">Invited lectures</span>
+            </div>
+          </article>
+          <article class="card">
             <h3 class="talk-title">Intensive Lectures: Cosmological and Conformal Bootstrap</h3>
             <p class="talk-authors">K. Fujikura</p>
             <p class="talk-meta">IBS-CTPU-CGA, March 5, 6, 7 2024.</p>
@@ -636,9 +378,29 @@
         </div>
         <div class="talk-list">
           <article class="card">
+            <h3 class="talk-title">Uniform Matrix Product States for Hamiltonian Lattice Gauge Theories: Methods and Applications</h3>
+            <p class="talk-authors">K. Fujikura</p>
+            <p class="talk-meta">RIKEN iTHEMS, April 2026.</p>
+          </article>
+          <article class="card">
+            <h3 class="talk-title">Two-Color QCD at Finite Baryon Density with Uniform Matrix Product State</h3>
+            <p class="talk-authors">K. Fujikura, Y. Hidaka</p>
+            <p class="talk-meta">Quark-Hadron Seminar, Kyoto University, October 2025.</p>
+          </article>
+          <article class="card">
+            <h3 class="talk-title">Critical behavior of the Schwinger model via gauge invariant matrix product states</h3>
+            <p class="talk-authors">H. Fujii, K. Fujikura, Y. Kikukawa, T. Okuda, J. W. Pedersen</p>
+            <p class="talk-meta">Nuclear Theory Colloquium, Kyoto University, May 2025.</p>
+          </article>
+          <article class="card">
+            <h3 class="talk-title">Critical behavior of the Schwinger model via gauge invariant matrix product states</h3>
+            <p class="talk-authors">H. Fujii, K. Fujikura, Y. Kikukawa, T. Okuda, J. W. Pedersen</p>
+            <p class="talk-meta">CREST HEP-QC Seminar, YITP, May 2025.</p>
+          </article>
+          <article class="card">
             <h3 class="talk-title">Critical behavior of the Schwinger model via gauge-invariant VUMPS</h3>
             <p class="talk-authors">H. Fujii, K. Fujikura, T. Okuda, Y. Kikukawa, J. W. Pedersen</p>
-            <p class="talk-meta">KEK, March 2025.</p>
+            <p class="talk-meta">KEK, February 2025.</p>
           </article>
           <article class="card">
             <h3 class="talk-title">Critical behavior of the Schwinger model via gauge-invariant VUMPS</h3>
@@ -712,6 +474,11 @@
         </div>
         <div class="talk-list">
           <article class="card">
+            <h3 class="talk-title">Dense QC<sub>2</sub>D<sub>2</sub> with uniform matrix product states</h3>
+            <p class="talk-authors">K. Fujikura, Y. Hidaka</p>
+            <p class="talk-meta">YITP International School on EIC Physics, Kyoto, March 2026.</p>
+          </article>
+          <article class="card">
             <h3 class="talk-title">Radion Stabilization and supercooled phase transition</h3>
             <p class="talk-authors">K. Fujikura, Y. Nakai, M. Yamada, S. Girmohanta, Z. Zhang</p>
             <p class="talk-meta">Progress in Particle Physics 2024, August 2024.</p>
@@ -731,8 +498,15 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>See <a href="index.html">the main page</a> for profile, research interests, selected publications, and Kyoto notes.</p>
+      <p>© Kohei Fujikura</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="notes.html">Notes</a>
+        <a href="https://inspirehep.net/authors/1897295" target="_blank" rel="noopener noreferrer">INSPIRE</a>
+      </div>
     </div>
   </footer>
+
+  <script src="assets/site.js" defer></script>
 </body>
 </html>
